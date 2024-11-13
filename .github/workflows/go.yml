@@ -22,7 +22,7 @@ jobs:
 
     - name: SET GitHub ENV k8s version
       env:
-        packageName: v1.24.16
+        packageName: v1.24.6
       run: echo "packageName=${{ env.packageName }}" >> $GITHUB_ENV
 
     - name: Get github Env
@@ -59,10 +59,10 @@ jobs:
 
     - name: Kubeadm version
       run: |
-        chmod +x ./_output/local/bin/linux/amd64/kubeadm
-        ./_output/local/bin/linux/amd64/kubeadm version
+        chmod +x ./_output/local/bin/linux/arm64/kubeadm
+        ./_output/local/bin/linux/arm64/kubeadm version
     - name: Package file dirname
-      run: mkdir kube && cp ./_output/local/bin/linux/amd64/kubeadm kube
+      run: mkdir kube && cp ./_output/local/bin/linux/arm64/kubeadm kube
 
     - uses: actions/upload-artifact@v3
       with:

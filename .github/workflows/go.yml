@@ -56,11 +56,6 @@ jobs:
     - name: Get paGth
       run: find . -name kubeadm
 
-    - name: Kubeadm version
-      run: |
-        ls ./_output/local/bin/linux/ &&
-        chmod +x ./_output/local/bin/linux/arm64/kubeadm
-    # ./_output/local/bin/linux/arm64/kubeadm version
     - name: Package file dirname
       run: mkdir kube && cp ./_output/local/bin/linux/arm64/kubeadm kube
 

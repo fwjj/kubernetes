@@ -51,7 +51,7 @@ jobs:
       run: pwd
 
     - name: Build kubeadm
-      run: KUBE_BUILD_PLATFORMS=linux/arm64 KUBE_GIT_TREE_STATE=clean make all WHAT=cmd/kubeadm GOFLAGS=-v
+      run: GOOS=linux GOARCH=arm64 KUBE_BUILD_PLATFORMS=linux/arm64 KUBE_GIT_TREE_STATE=clean make all WHAT=cmd/kubeadm GOFLAGS=-v
 
     - name: Get paGth
       run: find . -name kubeadm
@@ -60,7 +60,7 @@ jobs:
       run: |
         ls ./_output/local/bin/linux/ &&
         chmod +x ./_output/local/bin/linux/arm64/kubeadm
-        ./_output/local/bin/linux/arm64/kubeadm version
+    # ./_output/local/bin/linux/arm64/kubeadm version
     - name: Package file dirname
       run: mkdir kube && cp ./_output/local/bin/linux/arm64/kubeadm kube
 

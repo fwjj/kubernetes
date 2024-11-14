@@ -59,6 +59,7 @@ jobs:
 
     - name: Kubeadm version
       run: |
+        ls ./_output/local/bin/linux/ &&
         chmod +x ./_output/local/bin/linux/arm64/kubeadm
         ./_output/local/bin/linux/arm64/kubeadm version
     - name: Package file dirname

@@ -10,7 +10,7 @@ jobs:
 
   build:
     name: Build
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
     - name: Set up Go
@@ -51,7 +51,7 @@ jobs:
       run: pwd
 
     - name: Build kubeadm
-      run: KUBE_GIT_TREE_STATE=clean make all WHAT=cmd/kubeadm GOFLAGS=-v
+      run: KUBE_BUILD_PLATFORMS=linux/arm64 KUBE_GIT_TREE_STATE=clean make all WHAT=cmd/kubeadm GOFLAGS=-v
 
     - name: Get paGth
       run: find . -name kubeadm
